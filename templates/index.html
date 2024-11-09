@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+    <p>Hola, {{ current_user.nombre }}! Ya estás logueado.</p>
+{% else %}
+    <p><a href="{{ url_for('login') }}">Inicia sesión</a> para acceder a más funciones.</p>
+{% endif %}
+
+<h2 style="font-style: italic; text-align: center;">Bienvenido a Pawtrust House, Tu guardería canina de confianza</h2>
+<p style="text-align: center;">Ofrecemos los mejores servicios para tu mascota.</p>
+
+<section style="text-align: center; margin: 20px;">
+    <img src="static/perros1.jpeg" alt="Perros" style="width: 100%; max-width: 800px; border-radius: 8px;">
+</section>
+
+<section style="text-align: center; margin: 20px;">
+    <h3>Nuestra Historia</h3>
+    <div class="info-box">
+        <p>Pawtrust House fue fundada en 2023 por un grupo de amantes de los animales que soñaban con crear un lugar donde cada mascota se sienta como en casa. La idea nació en un pequeño garaje, donde un par de amigos comenzaron a cuidar de perros abandonados y a ofrecer servicios de esparcimiento. A medida que la demanda creció, decidieron abrir una guardería canina que no solo proporcionara cuidado, sino también amor y atención personalizada a cada peludo.</p>
+    </div>
+</section>
+
+<section style="text-align: center; margin: 20px;">
+    <h3>Misión</h3>
+    <div class="info-box">
+        <p>Nuestra misión es proporcionar un entorno seguro y cariñoso para los perros, asegurando que cada mascota reciba la atención y el cuidado que merece, mientras sus dueños están fuera.</p>
+    </div>
+</section>
+
+<section style="text-align: center; margin: 20px;">
+    <h3>Visión</h3>
+    <div class="info-box">
+        <p>Visualizamos un mundo donde cada mascota tenga acceso a servicios de calidad que enriquezcan su vida y fortalezcan el vínculo con sus dueños.</p>
+    </div>
+</section>
+
+<section style="text-align: center; margin: 20px;">
+    <h3>Propósito</h3>
+    <div class="info-box">
+        <p>En Pawtrust House, nuestro propósito es ofrecer no solo cuidado, sino también educación y actividades que promuevan el bienestar físico y emocional de las mascotas, asegurando que sean parte de una comunidad amorosa y responsable.</p>
+    </div>
+</section>
+
+<section style="text-align: center; margin: 20px;">
+    <h3>Servicios Ofrecidos</h3>
+    <ul style="list-style-type: disc; padding-left: 20px; text-align: left; display: inline-block;">
+        <li>Cuidado diario y alojamiento para perros</li>
+        <li>Entrenamiento y socialización</li>
+        <li>Paseos y actividades recreativas</li>
+        <li>Servicios de grooming y spa</li>
+        <li>Asesoría para dueños de mascotas</li>
+    </ul>
+</section>
+
+<section style="text-align: center; margin: 20px;">
+    <h3>Horarios de Atención</h3>
+    <p>Lunes a Viernes: 8:00 AM - 6:00 PM<br>
+       Sábados: 9:00 AM - 4:00 PM<br>
+       Domingos: Cerrado para recepción de peludos</p>
+</section>
+
+<section style="text-align: center; margin: 20px;">
+    <h3>Ubicación</h3>
+    <p>Estamos ubicados en el corazón de la ciudad, en Cra. 56 #51-12, Bucaramanga, Santander.</p>
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1987.5001837632454!2d-73.1192504!3d7.115484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4d038a4e2f72c3%3A0x9f3c34d5de0e4e0b!2sCra.+56+%2351-97%2C+Bucaramanga%2C+Santander!5e0!3m2!1ses!2sco!4v1696291321623!5m2!1ses!2sco"
+        width="600"
+        height="450"
+        style="border:0; border-radius: 8px;"
+        allowfullscreen=""
+        loading="lazy"></iframe>
+    <p>Ubicación en:</p>
+    <ul>
+        <li>Cra. 56 #51-97, Bucaramanga, Santander</li>
+    </ul>
+</section>
+
+<section style="text-align: center; margin: 20px;">
+    <h3>Testimonios</h3>
+    <blockquote>
+        "¡Pawtrust House ha cambiado la vida de mi perro! Se divierte tanto y el personal es increíble." - Ana P.
+    </blockquote>
+    <blockquote>
+        "No podría estar más feliz con el cuidado que recibe mi mascota. ¡Lo recomiendo al 100%!" - Juan R.
+    </blockquote>
+    <blockquote>
+        "El mejor lugar para dejar a mi perro. Siempre regresa feliz y cansado. ¡Gracias, Pawtrust!" - Laura M.
+    </blockquote>
+    <blockquote>
+        "La atención y cariño que reciben los perros aquí es excepcional. ¡Me siento tranquilo dejando a mi perrito!" - Carlos T.
+    </blockquote>
+    <blockquote>
+        "Me encanta la variedad de actividades que ofrecen. Mi perro se divierte y aprende al mismo tiempo." - Sofía G.
+    </blockquote>
+    <blockquote>
+        "El personal es tan amable y atento. Siento que mi mascota está en buenas manos." - Diego S.
+    </blockquote>
+</section>
+<style>
+    .info-box {
+        background-color: #EAB8C9;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px auto;
+        width: 100%;
+        max-width: 1400px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: none;
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    input[type="submit"] {
+        background-color: #2a9d8f;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #21867a;
+    }
+
+    #comments-section {
+        margin-top: 20px;
+    }
+
+    .comment {
+        background-color: #e7f9f7;
+        border-left: 4px solid #2a9d8f;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        transition: transform 0.3s;
+    }
+
+    .comment:hover {
+        transform: scale(1.02);
+    }
+
+    blockquote {
+        background-color: #E0F7FA;
+        border-left: 4px solid #2a9d8f;
+        padding: 10px 15px;
+        margin: 10px 0;
+        border-radius: 4px;
+        font-style: italic;
+        color: #555;
+    }
+</style>
+
+<div class="container">
+    <h1>Cuéntanos tu experiencia</h1>
+    <form id="comment-form">
+        <textarea id="comment" rows="4" placeholder="Deja aquí tu testimonio" required></textarea>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <div id="comments-section">
+        <h2>Comentarios:</h2>
+        <!-- Los comentarios se agregarán aquí dinámicamente -->
+    </div>
+</div>
+
+<script>
+    document.getElementById('comment-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const comment = document.getElementById('comment').value;
+        
+        const commentDiv = document.createElement('div');
+        commentDiv.classList.add('comment');
+        commentDiv.innerHTML = `<p>${comment}</p>`;
+        
+        document.getElementById('comments-section').appendChild(commentDiv);
+        
+        document.getElementById('comment').value = '';
+    });
+</script>
+
+
+{% endblock %}

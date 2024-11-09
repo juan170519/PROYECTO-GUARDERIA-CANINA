@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}Reservar Servicio{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Reservar Servicio</h2>
+    <form action="{{ url_for('reserve_service') }}" method="post" id="reservation-form">
+        <div class="mb-3">
+            <label for="fechas" class="form-label">Selecciona Fechas:</label>
+            <input type="text" id="fechas" name="fechas" class="form-control" placeholder="Selecciona varias fechas" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="mascota_id" class="form-label">Selecciona tu Mascota:</label>
+            <select id="mascota_id" name="mascota_id" class="form-select" required>
+                <option value="" disabled selected>-- Selecciona una mascota --</option>
+                {% for mascota in mascotas %}
+                    <option value="{{ mascota.id }}">{{ mascota.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <p></p>
+        <p></p>
+
+        <div class="mb-3">
+            <label for="guarderia_id" class="form-label">Selecciona una Guardería:</label>
+            <select id="guarderia_id" name="guarderia_id" class="form-select" required>
+                <option value="" disabled selected>-- Selecciona una guardería --</option>
+                {% for guarderia in guarderias %}
+                    <option value="{{ guarderia.id }}">{{ guarderia.nombre }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <p></p>
+        <p></p>
+
+        <fieldset class="mb-3">
+            <legend>Selecciona los Servicios:</legend>
+            {% set precios_servicios = {
+                "Cuidado diario y alojamiento para perros": 100000,
+                "Entrenamiento y socialización": 50000,
+                "Paseos y actividades recreativas": 30000,
+                "Servicios de grooming y spa": 50000,
+                "Asesoría para dueños de mascotas": 40000
+            } %}
+            {% for servicio in servicios %}
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="tipo_servicio" value="{{ servicio.id }}" id="servicio_{{ servicio.id }}" data-precio="{{ precios_servicios[servicio.nombre] }}">
+                    <label class="form-check-label" for="servicio_{{ servicio.id }}">
+                        <div class="d-flex align-items-center">
+                            <span>{{ servicio.nombre }} - ${{ precios_servicios[servicio.nombre] }}</span>
+                        </div>
+                    </label>
+                </div>
+            {% endfor %}
+        </fieldset>
+        
+        
+
+        <input type="hidden" id="total" name="total" value="0">
+
+        <button type="submit" class="btn btn-primary w-100">Reservar</button>
+    </form>
+</div>
+
+<style>
+    .container {
+        max-width: 700px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+        margin-bottom: 10px;
+    }
+</style>
+
+<script>
+    flatpickr("#fechas", {
+        mode: "multiple",
+        dateFormat: "d/m/Y",
+        onChange: function(selectedDates) {
+            updateTotal();
+        }
+    });
+
+    document.querySelectorAll('input[name="tipo_servicio"]').forEach(input => {
+        input.addEventListener('change', updateTotal);
+    });
+
+    function updateTotal() {
+        const totalInput = document.getElementById('total');
+        const fechas = document.getElementById('fechas').value.split(',').length; // Contar fechas
+        const servicios = document.querySelectorAll('input[name="tipo_servicio"]:checked');
+        
+        let total = 0;
+        servicios.forEach(servicio => {
+            total += parseFloat(servicio.getAttribute('data-precio'));
+        });
+
+        total *= fechas; // Multiplicar por la cantidad de fechas
+        totalInput.value = total.toFixed(2); // Solo el número
+    }
+</script>
+
+
+{% endblock %}

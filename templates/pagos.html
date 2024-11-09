@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Pagos{% endblock %}
+{% block content %}
+<style>
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    .amount {
+        font-size: 24px;
+        font-weight: bold;
+        color: #2a9d8f;
+        text-align: center;
+    }
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+    select, button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+    button {
+        background-color: #2a9d8f;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #21867a;
+    }
+</style>
+
+<div class="container">
+    <h2>Pagar Reserva</h2>
+    <p class="amount">Monto a pagar: ${{ monto }}</p>
+
+    <form action="{{ url_for('realizar_pago', reserva_id=reserva_id) }}" method="post">
+        <label for="metodo_pago">Método de Pago:</label>
+        <select id="metodo_pago" name="metodo_pago" required>
+            <option value="tarjeta">Tarjeta de Crédito</option>
+            <option value="efectivo">Efectivo</option>
+            <option value="transferencia">Transferencia Bancaria</option>
+            <option value="pse">PSE (Pago Seguro en Línea)</option>
+        </select>
+
+        <input type="hidden" name="monto" value="{{ monto }}"> <!-- Para enviar el monto junto con el formulario -->
+
+        <button type="submit">Realizar Pago</button>
+    </form>
+</div>
+
+{% endblock %}

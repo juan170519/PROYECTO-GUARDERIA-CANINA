@@ -1,0 +1,142 @@
+/* Global Styles */
+body {
+    font-family: 'Lora', serif; /* Cambiar a Lora para un estilo más bonito */
+    background-color: #F9F0EE;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background-color: #d04b8d;
+    color: white;
+    padding: 35px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3.5em;
+    font-style: italic; /* Título en cursiva */
+}
+
+/* Navigation Styles */
+.navbar {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    background-color: #EAB8C9; /* Fondo de la barra de navegación */
+    padding: 15px;
+    border-radius: 8px;
+    margin: 5px 0; /* Espacio entre el encabezado y la barra de navegación */
+}
+
+nav a {
+    color: #992c8a; /* Color del texto de los enlaces */
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 20px; /* Espaciado interno para los "botones" */
+    border-radius: 5px;
+    background-color: white; /* Fondo blanco para los botones */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    background-color: #D8A3AA; /* Cambiar color de fondo al pasar el ratón */
+    transform: translateY(-2px); /* Efecto de elevación al pasar el ratón */
+}
+
+h3 {
+    font-size: 24px; /* Tamaño de fuente más grande */
+    color: #C88E9D; /* Color atractivo */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    margin-top: 20px; /* Espaciado superior */
+    margin-bottom: 10px; /* Espaciado inferior */
+    font-family: 'Arial', sans-serif; /* Tipografía */
+}
+/* Form Styles */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+}
+
+input:focus {
+    border-color: #EAB8C9;
+    outline: none;
+}
+
+/* Button Styles */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #EAB8C9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #D8A3AA;
+    transform: translateY(-2px);
+}
+
+/* Error Message Styles */
+.error-message {
+    color: #e74c3c;
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    form {
+        padding: 15px;
+    }
+}
+
+.form-check {
+    display: flex; /* Utiliza flexbox para alinear los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    margin-bottom: 10px; /* Espaciado entre servicios */
+}
+
+.form-check-input {
+    margin-right: 10px; /* Espacio entre el checkbox y el texto */
+    transform: scale(1.2); /* Aumenta el tamaño del checkbox si lo deseas */
+}
+
+.form-check-label {
+    font-weight: normal; /* Cambia el peso de la fuente si es necesario */
+}

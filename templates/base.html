@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Agregar en el <head> de base.html -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <title>{% block title %}Guardería Canina{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Pawtrust House</h1>
+    </header>
+    <nav class="navbar">
+        <a href="{{ url_for('index') }}">Inicio</a>
+        {% if not current_user.is_authenticated %}
+            <a href="{{ url_for('register_user') }}">Registro</a>
+            <a href="{{ url_for('login') }}">Iniciar Sesión</a>
+        {% endif %}
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('register_dog') }}">Registrar Perro</a>
+            <a href="{{ url_for('reserve_service') }}">Reservar Servicio</a>
+            <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+        {% endif %}
+    </nav>
+    <main>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+    <footer style="text-align: center; margin: 20px;">
+        <small>&copy; 2024 Pawtrust House - Guardería Canina. Todos los derechos reservados.</small>
+    </footer>
+    
+</body>
+</html>
